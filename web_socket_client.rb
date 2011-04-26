@@ -21,14 +21,12 @@ class WebSocketClient
                       "^n:ds[4U\r\n"
       @socket.print(handshake)
       response = @socket.gets # Read lines from the socket
-      raise(RuntimeError, "Bad Response #{response}") unless response =~ /\AHTTP\/1.1 101 /n     
-
+      raise(RuntimeError, "Bad Response #{response}") unless response =~ /\AHTTP\/1.1 101 /n
     end
-        
+
     def socket
       @socket
-    end    
- 
+    end
 end
 
 
@@ -58,5 +56,5 @@ begin
     end
   end
 rescue
-  
+  p $!
 end
